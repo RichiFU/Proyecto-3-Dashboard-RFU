@@ -1,0 +1,12 @@
+{
+  "name": "proyecto-3-dashboard-ricardo-f",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ricardo Fuentes Urizar",
+  "license": "ISC"
+}
