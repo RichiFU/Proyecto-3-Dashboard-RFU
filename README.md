@@ -11,7 +11,7 @@ Este proyecto consiste en una página web interactiva que muestra un gráfico de
 
 ## Cómo Usar
 
-1. Abre la pagina web: https://richifu.github.io/Proyecto-2-CRUD-RFU/ , para acceder a la interfaz del gráfico.
+1. Abre la pagina web: https://proyecto-3-dashboard-rfu.netlify.app/ , para acceder a la interfaz del gráfico.
 2. Selecciona una fecha de inicio y una fecha de fin para definir el período que deseas visualizar.
 3. Asegúrate que la fecha que seleccionaste sea de mínimo una semana y máximo dos meses.
 4. Haz clic en el botón "Generar Gráfico" para ver el gráfico interactivo.
