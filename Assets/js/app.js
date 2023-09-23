@@ -76,7 +76,7 @@ function updateChart() {
 
     // Aplicar colores para el euro (naranja y verde)
     chartInstance.data.datasets[1].backgroundColor = fechas.map((fecha) => {
-        const valor = valoresEuro[fechas.indexOf(fecha)];  
+        const valor = valoresEuro[fechas.indexOf(fecha)];
         return valor > 935 ? rgbaOrangeColor : rgbaGreenColor;
     });
 
@@ -119,6 +119,9 @@ function createChart() {
             ],
         },
         options: {
+            responsive: true, // Habilita la opción de gráfico responsive
+            maintainAspectRatio: false,
+            // ...
             layout: {
                 padding: 20,
             },
@@ -190,7 +193,7 @@ async function renderData() {
     // Si chartInstance tiene un valor distinto a null, undefined o false.
     if (chartInstance) {
         updateChart(); // Se actualiza grafico
-        
+
     } else {
         createChart(); // De lo contrario se crea un grafico
     }

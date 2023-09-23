@@ -36,11 +36,12 @@ ul.list-unstyled li a:hover {
 .btn-gf {
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .label-fi-ft {
     display: flex;
-    gap: 10px;
+    gap: 40px;
 }
 
 .label-fi-ft label {
@@ -66,3 +67,32 @@ ul.list-unstyled li a:hover {
 .custom-label {
     font-size: 18px; 
 }
+
+.chart-container {
+    width: 100%;
+    height: 80vh;
+}
+
+#generateChart {
+    padding: 0.2rem 1rem !important;
+}
+
+
+
+@media (max-width: 768px) {
+    .flex-md-row {
+        flex-direction: column;
+    }
+
+    .btn-gf {
+        margin-top: 9%;
+    }
+
+    .label-fi-ft {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+}
+
