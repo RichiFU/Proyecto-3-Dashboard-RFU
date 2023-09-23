@@ -14,23 +14,36 @@ const rgbaGreenColor = "rgba(0, 128, 0, 0.5)"; // Verde
 
 // Funcion para obtener las fechas de inicio y fin ingresadas por el usuario
 function getSelectedDates() {
-    const startDate = new Date(document.getElementById("startDate").value); // Captura el valor de fecha de inicio
-    const endDate = new Date(document.getElementById("endDate").value); // Captura el valor de fecha de fin
+    const startDateInput = document.getElementById("startDate");
+    const endDate = new Date(document.getElementById("endDate").value);
+
+    let startDate;
+
+    //  La fecha de inicio (startDate) se establecera en la fecha que el usuario seleccione
+    if (startDateInput.value) {
+        startDate = new Date(startDateInput.value);
+    } else {
+        const currentDate = new Date();
+        startDate = new Date(currentDate.getFullYear(), currentDate.getMonth(), 1);
+        // Establece en el dia de inicio al 1er dia del mes actual
+        startDateInput.valueAsDate = startDate; // Actualiza el valor del campo de fecha
+    }
+
     return { startDate, endDate };
 }
 
 // Funcion para verificar el rango de fechas
 function validarRangoFechas(startDate, endDate) {
     const unaSemanaEnMS = 7 * 24 * 60 * 60 * 1000; // Milisegundos en una semana
-    const unMesEnMS = 30 * 24 * 60 * 60 * 1000; // Milisegundos en un mes
+    const dosMesesEnMS = 60 * 24 * 60 * 60 * 1000; // Milisegundos en dos meses
 
     const diferenciaFechas = endDate - startDate;
 
     if (diferenciaFechas < unaSemanaEnMS) {
         // Menos de una semana, retorna falso
         return false;
-    } else if (diferenciaFechas > unMesEnMS) {
-        // Mas de un mes, retorna falso
+    } else if (diferenciaFechas > dosMesesEnMS) {
+        // Mas de dos meses, retorna falso
         return false;
     }
 
@@ -41,11 +54,13 @@ function validarRangoFechas(startDate, endDate) {
 // Funcion para filtrar los datos de la API por fecha
 function filterDataByDateRange(data, startDate, endDate) {
     return data.serie.filter((item) => {
-        const fecha = new Date(item.fecha);
+        const fecha = new Date(item.fecha); //Convierte la propiedad fecha de cada elemento en un objeto Date para poder comparar las fechas.
+        // Compara la fecha de cada elemento (fecha) con la fecha de inicio (startDate) y la fecha de fin (endDate).
         return fecha >= startDate && fecha <= endDate;
     });
 }
 
+// Funcion que actualiza y personaliza el grafico para mostrar valores del dolar y euro con colores especificos basados en sus valores
 function updateChart() {
     chartInstance.data.labels = fechas;
     chartInstance.data.datasets[0].data = valoresDolar; // se esta haciendo referencia al primer conjunto de datos 
@@ -156,7 +171,7 @@ async function renderData() {
 
     // Si validarRangoFechas no cumple con la condicion:
     if (!validarRangoFechas(startDate, endDate)) {
-        alert("El rango de fechas debe ser de al menos una semana y como máximo un mes.");
+        alert("El rango de fechas debe ser de al menos una semana y como máximo dos meses.");
         return;
     }
 
