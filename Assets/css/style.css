@@ -1,0 +1,68 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+}
+
+ul.list-unstyled li a:hover {
+    color: #f0bc21 !important;
+}
+
+.nav-link:hover {
+    color: #f0bc21 !important;
+}
+
+.logo-img {
+    width: 100px; 
+    height: auto; 
+}
+
+.jumbotron {
+    background-color: #343a40;
+    color: white;
+    padding: 2rem;
+}
+
+.custom-margin-bottom {
+    margin-bottom: 7%; 
+}
+
+.btn-gf {
+    display: flex;
+    justify-content: center;
+}
+
+.label-fi-ft {
+    display: flex;
+    gap: 10px;
+}
+
+.label-fi-ft label {
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333; 
+}
+
+.label-fi-ft input[type="date"] {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;  
+}
+
+.custom-label-botton {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 5%;
+    margin-bottom: 3%;
+}
+
+.custom-label {
+    font-size: 18px; 
+}
